@@ -1,56 +1,71 @@
-# Instalasi dan Konfigurasi
+# Setup dan Instalasi Aplikasi
 
 ## 1. Install Vendor
 
-Jalankan perintah berikut untuk menginstall vendor menggunakan Composer:
+Jalankan perintah berikut untuk menginstal dependensi menggunakan Composer:
 
-```sh
+```bash
 composer install
 ```
 
-## 2. Jalankan Migrasi Database
+## 2. Konfigurasi Database
 
-Untuk menjalankan migrasi database, gunakan perintah berikut:
+Buat database dengan duplikat .env example buat nama menjadi .env
+dengan konfigurasi berikut:
 
-```sh
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=bca
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+## 3. Menjalankan Migrasi Database
+
+Jalankan perintah berikut untuk melakukan migrasi database:
+
+```bash
 php artisan migrate
 ```
 
-## 3. Memasukkan Data Dummy (Opsional)
+## 4. Memasukkan Data Dummy (Opsional)
 
-Jika ingin memasukkan data dummy ke dalam database, jalankan perintah berikut:
+Jika Anda ingin memasukkan data dummy ke dalam database, jalankan perintah berikut:
 
-```sh
+```bash
 php artisan db:seed --class=CreateUsersSeeder
 php artisan db:seed --class=SubmissionSeeder
 php artisan db:seed --class=CreateVehicleListSeeder
 ```
 
-## 4. Akun Default
+## 5. Akun yang Tersedia
 
-Berikut adalah akun default yang tersedia:
+Berikut beberapa akun yang dapat digunakan untuk login:
 
-### Akun Admin:
+- **Admin:**
+  - Email: `admi@admin.com`
+  - Password: `admin`
+- **Approval:**
+  - Email: `marespdd@gmail.com`
+  - Password: `mares30`
+- **User:**
+  - Email: `arni@gmail.com`
+  - Password: `arnii123` (atau dapat mendaftar akun baru)
 
-- **Email:** [admin@admin.com](mailto\:admin@admin.com)
-- **Password:** admin
+## 6. Menjalankan Aplikasi
 
-### Akun Approval:
+Untuk menjalankan aplikasi, gunakan perintah berikut:
 
-- **Email:** [marespdd@gmail.com](mailto\:marespdd@gmail.com)
-- **Password:** mares30
+```bash
+php artisan serve
+```
 
-### Akun User:
-
-- **Email:** [arni@gmail.com](mailto\:arni@gmail.com)
-- **Password:** arnii123 *(atau akun bisa didaftar)*
-
-## 5. Mengakses Aplikasi
-
-Untuk menjalankan pengajuan, kunjungi URL berikut di browser:
+Kemudian akses aplikasi melalui:
 
 ```
 http://localhost:8000/
 ```
 
-Pastikan semua langka langka dilakukan dengan benar
+Pastikan semua langka langka dilakukan dengan benar.
